@@ -64,5 +64,78 @@
 		沟通
 		通过直观的用户界面，用户可以方便地通过网络并行访问DOORS，并维护大量的管理对象（需求和关联信息）和连接。通过fish-eye 和MicrosoftWindows 资源管理器的图形方式管理视图，每一个用户都可以方便地定制他们想要看到的需求信息—使用图形和颜色。
 	\end{enumerate}
-
+	
+	那么我们可以知道，在Rational DOORS中存在以下几类业务参与者：管理者、开发者与最终用户。
+	对于这三类人，他们分别有以下属性：
+	\begin{itemize}
+		\item 管理者
+		\begin{enumerate}
+			\item Administrator Number
+			\item Account Type
+			\item Account Information
+			\subitem .User Name
+			\subitem .Password
+			\subitem .Alias Name
+			\subitem .Gender
+			\subitem .Date of Birth
+			\item Subordinates Charged
+			\item Projects charged
+			\subitem .Target Users
+			\subitem .Documentations
+		\end{enumerate}
+	
+		\item 开发者
+		\begin{enumerate}
+			\item Developer Number
+			\item Account Type
+			\item Account Information
+			\subitem .User Name
+			\subitem .Password
+			\subitem .Alias Name
+			\subitem .Gender
+			\subitem .Date of Birth
+			\item Role
+			\item Parts charged
+			\item Parts can See
+			\subitem .Documentations
+			\item My Administrators
+		\end{enumerate}
+	
+		\item 最终用户
+		\begin{enumerate}
+			\item User Number
+			\item Account Type
+			\item Account Information
+			\subitem .User Name
+			\subitem .Password
+			\subitem .Alias Name
+			\subitem .Gender
+			\subitem .Date of Birth
+			\item Projects can See
+			\subitem .Project Display effect
+			\subitem .Project Documentation
+			\subitem .Administrators
+		\end{enumerate}
+	\end{itemize}
+	除了这三类实体之外，将这三类实体联系起来的还有一个实体：Project，其属性如下：
+	\begin{enumerate}
+		\item Project Number
+		\item Administrators
+		\item Parts
+		\item Users
+		\item Documentations
+	\end{enumerate}
+	当然，每一个Project会被分割成很多小的部分来由不同的人来完成，所以还有一个实体Part，其属性如下：
+	\begin{enumerate}
+		\item Part Number
+		\item Project Belonged
+		\item Documentations
+		\item Developers
+		\item Administrators
+	\end{enumerate} 
+	最后这些实体之间的实体关系图如下：
+	\begin{figure}
+		\includegraphics[width=\textwidth]{2.jpg}
+		\caption{ER图}
+	\end{figure}
 \end{document}
