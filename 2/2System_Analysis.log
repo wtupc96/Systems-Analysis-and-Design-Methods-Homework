@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/W32TeX) (preloaded format=xelatex 2017.2.28)  6 APR 2017 13:38
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/W32TeX) (preloaded format=xelatex 2017.2.28)  9 APR 2017 14:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1258,12 +1258,12 @@ File: 2.jpg Graphic file (type QTm)
 
 <use  "2.jpg" > [5] [6] (./2System_Analysis.aux) ) 
 Here is how much of TeX's memory you used:
- 20134 strings out of 493591
- 423785 string characters out of 6148418
+ 20144 strings out of 493591
+ 424432 string characters out of 6148418
  416482 words of memory out of 5000000
- 23390 multiletter control sequences out of 15000+600000
+ 23400 multiletter control sequences out of 15000+600000
  6642 words of font info for 44 fonts, out of 8000000 for 9000
  1347 hyphenation exceptions out of 8191
- 65i,6n,78p,10445b,359s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 65i,6n,78p,10445b,361s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on 2System_Analysis.pdf (6 pages).
