@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:mysql://localhost:3306/rbac_system</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">123456</property>
+
+        <mapping resource="backEnd/entity/AssignmentEntity.hbm.xml"/>
+        <mapping resource="backEnd/entity/GradeEntity.hbm.xml"/>
+        <mapping resource="backEnd/entity/PermissionEntity.hbm.xml"/>
+        <mapping resource="backEnd/entity/RoleEntity.hbm.xml"/>
+        <mapping resource="backEnd/entity/RolePermissionEntity.hbm.xml"/>
+        <mapping resource="backEnd/entity/UserEntity.hbm.xml"/>
+        <mapping resource="backEnd/entity/UserRoleEntity.hbm.xml"/>
+
+        <mapping class="backEnd.entity.AssignmentEntity"/>
+        <mapping class="backEnd.entity.GradeEntity"/>
+        <mapping class="backEnd.entity.PermissionEntity"/>
+        <mapping class="backEnd.entity.RoleEntity"/>
+        <mapping class="backEnd.entity.RolePermissionEntity"/>
+        <mapping class="backEnd.entity.UserEntity"/>
+        <mapping class="backEnd.entity.UserRoleEntity"/>
+
+        <mapping class="backEnd.entity.UserRoleEntityPK"/>
+        <mapping class="backEnd.entity.RolePermissionEntityPK"/>
+         <!--DB schema will be updated if needed -->
+         <!--<property name="hbm2ddl.auto">update</property>-->
+    </session-factory>
+</hibernate-configuration>

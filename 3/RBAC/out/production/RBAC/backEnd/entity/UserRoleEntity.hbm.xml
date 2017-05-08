@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="backEnd.entity.UserRoleEntity" table="user_role" schema="rbac_system">
+        <composite-id mapped="true" class="backEnd.entity.UserRoleEntityPK">
+            <key-property name="userid">
+                <column name="userid" sql-type="int(11)"/>
+            </key-property>
+            <key-property name="roleId">
+                <column name="role_id" sql-type="int(11)"/>
+            </key-property>
+        </composite-id>
+        <many-to-one name="userByUserid" class="backEnd.entity.UserEntity" insert="false" update="false">
+            <column name="userid"/>
+        </many-to-one>
+        <many-to-one name="roleByRoleId" class="backEnd.entity.RoleEntity" insert="false" update="false">
+            <column name="role_id"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>
