@@ -16,8 +16,7 @@
         <mapping resource="backEnd/entity/RolePermissionEntity.hbm.xml"/>
         <mapping resource="backEnd/entity/UserEntity.hbm.xml"/>
         <mapping resource="backEnd/entity/UserRoleEntity.hbm.xml"/>
-        <mapping class="backEnd.entity.UserRoleEntityPK"/>
-        <mapping class="backEnd.entity.RolePermissionEntityPK"/>
+
         <mapping class="backEnd.entity.AssignmentEntity"/>
         <mapping class="backEnd.entity.GradeEntity"/>
         <mapping class="backEnd.entity.PermissionEntity"/>
@@ -26,7 +25,8 @@
         <mapping class="backEnd.entity.UserEntity"/>
         <mapping class="backEnd.entity.UserRoleEntity"/>
 
-
+        <mapping class="backEnd.entity.UserRoleEntityPK"/>
+        <mapping class="backEnd.entity.RolePermissionEntityPK"/>
          <!--DB schema will be updated if needed -->
          <!--<property name="hbm2ddl.auto">update</property>-->
     </session-factory>
