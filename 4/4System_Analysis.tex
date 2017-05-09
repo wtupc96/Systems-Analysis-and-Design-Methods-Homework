@@ -1,0 +1,45 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subfiles}
+\usepackage{pdfpages}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\usepackage{listings}
+
+%opening
+\title{系统分析与设计方法 \\ 作业 4}
+\author{软件42 \\ 欧阳鹏程 \\ 2141601030 \\ 版权声明：Creative Commons BY-NC-ND}
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+	\item 
+	\begin{itemize}
+		\item 某教育基金会捐助基金管理系统的基本功能如下：
+		\begin{itemize}
+			\item 由捐助者向基金会提出捐助请求，经身份确认后被接受，对捐助人进行登记并授予捐助证书，捐款存入银行；
+			\item 有教育单位提出用款申请，在进行相应合法性校验和核对相应的捐助存款后做出支出；
+			\item 每月给基金会的理事会一份财政状况报表，列出本月的收入和支出情况和资金余额。
+		\end{itemize}
+		\item 要求：
+		\begin{itemize}
+			\item 确定上述系统的数据源点和重点，画出该系统的顶层数据流图；
+			\item 分析系统的主要功能，细化系统的顶层数据流图，画出系统的第一层数据流图；
+			\item 细化系统的各个主要功能，画出系统的第二层数据流图。
+		\end{itemize}
+		\item 提示：
+		\begin{itemize}
+			\item 系统中有三个实体：捐助者，教育单位，基金会的理事会；
+			\item 系统的主要功能有：收入处理、支出处理、产生报表。其中收入处理可以细化为：接受请求（捐助请求）、确认身份和登记收入（存入款项）；支出处理可以细化为：接受请求（用款请求）、合法性检查和登记支出（支出款项）；
+			\item 系统需要存储的信息：捐助者信息、教育单位信息、收支情况信息。
+		\end{itemize}
+		\item 按照上述要求画出数据流图。
+		\item 作业最后包含实验总结和体会。
+	\end{itemize}
+	\subfile{ans.tex}	
+\end{enumerate}
+\end{document}
