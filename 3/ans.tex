@@ -189,6 +189,8 @@ restrict on update restrict;
 				\caption{Entities}
 				\label{fig:packages}
 			\end{figure}
+			
+			\newpage
 			\item
 			可是当我准备进行存取的时候，Hibernate报错了：
 			\begin{figure}[H]
@@ -208,9 +210,338 @@ restrict on update restrict;
 		\item
 		现在的想法是一个比上一个例子简单许多的Demo，想法如下：\\ 这个系统中包含了三种角色：管理员，教师和学生。管理员能查看所有的教师账户和学生账户，而教师只能查看所有的学生账户，学生不能查看别人的账户，此外，每种角色都有自己独有的按钮。系统在初始化的时候创建了一个管理员账户hello@hello.com并且系统以后也有且只有这一个管理员（因为注册选项没有注册为管理员的选项而只有教师和学生）。这次的技术选用在Android平台上。
 		\begin{itemize}
-			\item 
+			\item 先大概演示一下效果吧：
+			\begin{enumerate}
+				\item 这是app初始界面：可以注册成为老师或学生或登录。
+				\begin{figure}[H]
+					\centering
+					\includegraphics[height=0.3\textheight]{snapshot/1}
+					\caption{初始界面}
+					\label{fig:1}
+				\end{figure}
+				
+				\item Email框有判断功能：
+				\begin{figure}[H]
+					\centering
+					\includegraphics[height=0.39\textheight]{snapshot/2}
+					\caption{Email判断}
+					\label{fig:2}
+				\end{figure}
+				
+				\item 先注册一个教师：
+				\begin{figure}[H]
+					\centering
+					\includegraphics[height=0.39\textheight]{snapshot/3}
+					\caption{教师注册}
+					\label{fig:3}
+				\end{figure}
+				
+				\item 若重复注册则会报提示信息：
+				\begin{figure}[H]
+					\centering
+					\includegraphics[height=0.39\textheight]{snapshot/4}
+					\caption{Email重复}
+					\label{fig:4}
+				\end{figure}
+				
+				\item 教师登入界面如下：
+				\begin{figure}[H]
+					\centering
+					\includegraphics[height=0.39\textheight]{snapshot/5}
+					\caption{教师登入界面}
+					\label{fig:5}
+				\end{figure}
+			
+				\item 单击第一个Button：
+				\begin{figure}[H]
+					\centering
+					\includegraphics[height=0.39\textheight]{snapshot/6}
+					\caption{按钮点击}
+					\label{fig:6}
+				\end{figure}
+				
+				\item 单击Yes：
+				\begin{figure}[H]
+					\centering
+					\includegraphics[height=0.39\textheight]{snapshot/7}
+					\caption{按钮点击}
+					\label{fig:7}
+				\end{figure}
+			
+				\item 注册一个学生：
+				\begin{figure}[H]
+					\centering
+					\includegraphics[height=0.39\textheight]{snapshot/8}
+					\caption{注册学生}
+					\label{fig:8}
+				\end{figure}
+			
+				\item 学生只有一个Button：
+				\begin{figure}[H]
+					\centering
+					\includegraphics[height=0.39\textheight]{snapshot/9}
+					\caption{学生登入界面}
+					\label{fig:9}
+				\end{figure}
+			
+				\item 单击Button：
+				\begin{figure}[H]
+					\centering
+					\includegraphics[height=0.39\textheight]{snapshot/10}
+					\caption{按钮点击}
+					\label{fig:10}
+				\end{figure}
+			
+				\item 单击Yes：
+				\begin{figure}[H]
+					\centering
+					\includegraphics[height=0.39\textheight]{snapshot/11}
+					\caption{按钮点击}
+					\label{fig:11}
+				\end{figure}
+			
+				\item 再次登入教师账号点击第二个按钮，可以查看到刚刚注册的学生：
+				\begin{figure}[H]
+					\centering
+					\includegraphics[height=0.35\textheight]{snapshot/12}
+					\caption{教师查看学生}
+					\label{fig:12}
+				\end{figure}
+			
+				\item 系统中固有一个管理员，所以不可注册重名账户：
+				\begin{figure}[H]
+					\centering
+					\includegraphics[height=0.39\textheight]{snapshot/13}
+					\caption{尝试注册管理员账号}
+					\label{fig:13}
+				\end{figure}
+			
+				\item 管理员登入界面：
+				\begin{figure}[H]
+					\centering
+					\includegraphics[height=0.39\textheight]{snapshot/14}
+					\caption{管理员登入}
+					\label{fig:14}
+				\end{figure}
+			
+				\item 单击第一个Button：
+				\begin{figure}[H]
+					\centering
+					\includegraphics[height=0.39\textheight]{snapshot/15}
+					\caption{按钮点击}
+					\label{fig:15}
+				\end{figure}
+			
+				\item 单击Yes：
+				\begin{figure}[H]
+					\centering
+					\includegraphics[height=0.39\textheight]{snapshot/16}
+					\caption{按钮点击}
+					\label{fig:16}
+				\end{figure}
+			
+				\item 管理员查看学生用户：
+				\begin{figure}[H]
+					\centering
+					\includegraphics[height=0.39\textheight]{snapshot/17}
+					\caption{管理员查看用户}
+					\label{fig:17}
+				\end{figure}
+			
+				\item 管理员查看教师用户：
+				\begin{figure}[H]
+					\centering
+					\includegraphics[height=0.39\textheight]{snapshot/18}
+					\caption{管理员查看用户}
+					\label{fig:18}
+				\end{figure}
+			\end{enumerate}
+		
+		\item
+		整个Demo的功能基本就是这样，在角色权限的控制方面，我定义了这总共5个按钮的权限矩阵，使得每一种角色都对应这个矩阵的一行，以达到权限控制的目的。
+		\item
+		每一个用户的信息都由特定格式存储：[Email]:[Role]；如系统初始化时就存在一个管理员账户为：hello@hello.com:admin。
+		\item
+		所以对于角色权限的修改是十分简单的，只需要改变矩阵中某个元素的值即可。
+		
+		\item 看一下关键源码：
+		\begin{enumerate}
+			\item 第一个Activity的Oncreate函数：
+					\begin{lstlisting}[language=Java]
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_login);
+
+// Set up the login form.
+mEmailView = (AutoCompleteTextView)
+findViewById(R.id.email);
+populateAutoComplete();
+
+Button signIn = (Button) 
+findViewById(R.id.email_sign_in_button);
+Button registerButton = (Button) 
+findViewById(R.id.register);
+final RadioButton radioButtonTeacher 
+= (RadioButton) 
+findViewById(R.id.radioButtonTeacher);
+RadioButton radioButtonStudent 
+= (RadioButton) 
+findViewById(R.id.radioButtonStudent);
+
+signIn.setOnClickListener(new OnClickListener() {
+@Override
+public void onClick(View view) {
+attemptLogin();
+}
+});
+
+registerButton.setOnClickListener(new OnClickListener() {
+@Override
+public void onClick(View v) {
+String newEmail = mEmailView.getText().toString();
+for (String username : usernamePassword) {
+String[] pieces = username.split(":");
+if (pieces[0].equals(newEmail)) {
+Toast.makeText(LoginActivity.this, 
+"This email has been used.", Toast.LENGTH_SHORT)
+.show();
+return;
+}
+}
+if (radioButtonTeacher.isChecked()) {
+usernamePassword.add(newEmail + ":teacher");
+} else {
+usernamePassword.add(newEmail + ":student");
+}
+}
+});
+
+mLoginFormView = findViewById(R.id.login_form);
+mProgressView = findViewById(R.id.login_progress);
+}
+			\end{lstlisting}
+			第一个Activity主要处理了一些登录注册的逻辑，注册则先判断Email是否已经被注册过，登录的话则使用另一个继承自AsyncTask<Void, Void, Boolean>的内部类UserLoginTask来发送登录的异步请求（毕竟实际情况中可能会遭遇网络延时等情况）；若登录成功，则把role放到Bundle中发送到第二个Activity。
+			
+			\item 第二个Activity的Oncreate函数：
+			\begin{lstlisting}[language=Java]
+@Override
+public void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(R.layout.new_layout);
+
+username = LoginActivity.getUsernamePassword();
+
+Button[] buttons = {
+(Button) findViewById(R.id.Imastudent),
+(Button) findViewById(R.id.Imateacher),
+(Button) findViewById(R.id.Imanadmin),
+(Button) findViewById(R.id.Listallstudents),
+(Button) findViewById(R.id.Listallteachers)};
+
+buttons[0].setOnClickListener(
+new View.OnClickListener() {
+@Override
+public void onClick(View v) {
+new StudentDialog()
+	.show(getFragmentManager(), "");
+}
+});
+
+buttons[1].setOnClickListener(
+new View.OnClickListener() {
+@Override
+public void onClick(View v) {
+new TeacherDialog()
+	.show(getFragmentManager(), "");
+}
+});
+
+buttons[2].setOnClickListener(
+new View.OnClickListener() {
+@Override
+public void onClick(View v) {
+new AdminDialog()
+	.show(getFragmentManager(), "");
+}
+});
+
+buttons[3].setOnClickListener(
+new View.OnClickListener() {
+@Override
+public void onClick(View v) {
+List<String> studentList
+	= new ArrayList<String>();
+for (String name : username) {
+String[] pieces = name.split(":");
+if (pieces[1].equals("student")) {
+studentList.add(pieces[0]);
+}
+}
+String[] studentStr
+	= new String[studentList.size()];
+for (int i = 0; i < studentStr.length; ++i) {
+studentStr[i] = studentList.get(i);
+}
+ListStudentDialog listStudentDialog 
+	= new ListStudentDialog(studentStr);
+listStudentDialog
+	.show(getFragmentManager(), "");
+}
+});
+
+buttons[4].setOnClickListener(
+new View.OnClickListener() {
+@Override
+public void onClick(View v) {
+List<String> studentList 
+	= new ArrayList<String>();
+for (String name : username) {
+String[] pieces = name.split(":");
+if (pieces[1].equals("teacher")) {
+studentList.add(pieces[0]);
+}
+}
+
+String[] teacherStr 
+	= new String[studentList.size()];
+for (int i = 0; i < teacherStr.length; ++i) {
+teacherStr[i] = studentList.get(i);
+}
+ListTeacherDialog listTeacherDialog 
+	= new ListTeacherDialog(teacherStr);
+listTeacherDialog
+	.show(getFragmentManager(), "");
+}
+});
+String role 
+	= getIntent().getStringExtra("role");
+int[] permission = null;
+switch (role) {
+case "admin":
+permission = adminPermission;
+break;
+case "teacher":
+permission = teacherPermission;
+break;
+case "student":
+permission = studentPermission;
+break;
+}
+
+for (int i = 0; i < permission.length; ++i) {
+if (permission[i] == 0) {
+buttons[i].setVisibility(View.GONE);
+}
+}
+}
+			\end{lstlisting}
+			
+			\newpage
+			可以看到所有的角色都跳转到一个有着5个Button的页面，这5个Button分别行使各自不同的逻辑；通过权限的矩阵进行Button可见性和可用性的控制，从而达到RBAC。
+		\end{enumerate}
+
 		\end{itemize}
 	\end{enumerate}
-	
-	
 \end{itemize}
