@@ -5,7 +5,13 @@
 \usepackage{pdfpages}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
-
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=20mm,
+	top=20mm
+}
 \usepackage{listings}
 
 %opening
@@ -27,7 +33,7 @@
 		\end{itemize}
 		\item 要求：
 		\begin{itemize}
-			\item 确定上述系统的数据源点和重点，画出该系统的顶层数据流图；
+			\item 确定上述系统的数据源点和终点，画出该系统的顶层数据流图；
 			\item 分析系统的主要功能，细化系统的顶层数据流图，画出系统的第一层数据流图；
 			\item 细化系统的各个主要功能，画出系统的第二层数据流图。
 		\end{itemize}
